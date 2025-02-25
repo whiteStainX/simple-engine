@@ -8,8 +8,10 @@ namespace simple_engine::core {
             Parser() = default;
             ~Parser() = default;
 
-            // Basic method to parse simple SQL SELECT statements
             bool parse(const std::string& query);
+        private:
+            bool parseSelect(const std::string& query);
+            bool parseInsert(const std::string& query);
     };
 
 } // namespace simple_engine::core
