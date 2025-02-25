@@ -30,3 +30,27 @@
 *.exe
 *.out
 *.app
+
+# C++ build files
+build/
+*.o
+*.obj
+*.so
+*.exe
+*.dll
+*.out
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# IDE and editor settings
+.vscode/
+.idea/
+*.swp
+
+# MacOS-specific files
+.DS_Store
+
