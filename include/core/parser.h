@@ -1,22 +1,26 @@
 #pragma once
 #include <string>
+#include <memory>
+#include <vector>
 
 namespace simple_engine::core {
 
+    // Abstract class
+    class ParserOperation {
+        public:
+            virtual ~ParserOperation() = default;
+            virtual bool parse(const std::string& query) = 0;
+    };
+
     class Parser {
         public:
-            Parser() = default;
+            Parser();
             ~Parser() = default;
 
             bool parse(const std::string& query);
         private:
-            bool parseSelect(const std::string& query);
-            bool parseInsert(const std::string& query);
-            bool parseCreateTable(const std::string& query);
-            bool parseUpdate(const std::string& query);
-            bool parseDelete(const std::string& query);
-            bool parseDropTable(const std::string& query);
-            bool parseAlterTable(const std::string& query);
+            // Create a vector to hold all operations following same pattern
+            std::vector<std::unique_ptr<ParserOperation>> operations;
     };
 
 } // namespace simple_engine::core
